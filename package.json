@@ -1,6 +1,8 @@
 {
   "dependencies": {
     "@angular/core": "^13.2.2",
+    "@bugsnag/js": "^7.16.1",
+    "cross-origin": "^1.0.6",
     "tslib": "^2.3.1"
   }
 }
