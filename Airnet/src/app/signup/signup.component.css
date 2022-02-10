@@ -1,0 +1,17 @@
+.card{ 
+    width: 500px;
+    border: none;
+    left: 50%;
+    top: 50%;
+    padding: 40px;
+    position: absolute;
+    background: hsla(205, 46%, 30%, 1);
+}
+
+.card h1, h5{
+    color: white;
+}
+
+.card label{
+    color: white;
+}
