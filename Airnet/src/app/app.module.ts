@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PopularplansComponent } from './popularplans/popularplans.component';
 import { AddonsComponent } from './addons/addons.component';
+import { PrepaidplansComponent } from './prepaidplans/prepaidplans.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AddonsComponent } from './addons/addons.component';
     LoginComponent,
     SignupComponent,
     PopularplansComponent,
-    AddonsComponent
+    AddonsComponent,
+    PrepaidplansComponent
   ],
   imports: [
     BrowserModule,
