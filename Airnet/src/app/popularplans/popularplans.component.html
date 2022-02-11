@@ -1,30 +1,48 @@
-<div class="navbar">
-    <a href="#" class="title">AirNet</a>
-    <a href="#" id="userPlans">Popular plans</a>
-    <a href="#" id="userAdOns">Add ons</a>
-    <a href="#" id="notification">Notifications</a>
-    <a href="#" id="logout" class="right">Logout</a>
-</div>
-<div class="container">
-    <div class="pricing__table">
-        <div class="icon type-01">
-            <span class="fa fa-paper-plane" aria-hidden="true">
-            </span>
-        </div>
-        <h3 class="heading">Airtel</h3>
-        <h1 class="service__price">599<sup class="dollar__sign">$</sup>
-        </h1>
-        <ul class="features__list">
-            <li>
-                <i class="fa fa-check" aria-hidden="true">
-                </i>
-                <p>Data:1.5GB</p>
-                    <p>Unlimited Calls</p>
-                    <p>100 SMS/day</p>
-                    <p>Days:52 days</p>
-            </li>
+<header>
+    <p class="logo">Airnet</p>
+    <nav>
+        <ul class="nav_links">
+            <li><a href="http://localhost:62799/popularplans" id="userPlans" class="currentPage">Popular plans</a></li>
+            <li><a href="http://localhost:62799/addons" id="userAdOns">Add ons</a></li>
+            <li><a href="#" id="notification">Notifications</a></li>
         </ul>
-        <button class="order__button">></button>
+    </nav> 
+    <a class="logout" href="http://localhost:62799/login"><button>Logout</button></a>
+</header>  
+<br>
+<br>
+<div class="pack-detail-row">
+    <div class="coupon"></div>
+    <div class="pack-top">
+        <div class="col">
+            <p class="fs-lg icn-rupee">Jio</p>
+            <p class="text-grey fs-sm icn-rupee">Unlimited Calls</p>
+        </div>
+        <div class="col">
+            <p class="fs-lg icn-rupee">Rs.499</p>
+        </div>
+        <div class="col">
+            <p class="fs-lg">3GB</p>
+            <p class="text-grey fs-sm">/day</p>
+        </div>
+        <div class="col">
+            <button class="btn-circle icn-rupee">Recharge</button>
+        </div>
+    </div>
+    <div class="pack-bottom mt-3 extra-benifit-outer">
+        <div class="col">
+            <p class="text-grey fs-sm mb-2">100 sms/day</p>
+            <div class="clear extra-benifit">
+                <div class="col-4 benefit-tile">
+                    <p class="fs-sm benefit-des">Offer:Hotstar VIP for a month</p>
+                </div>
+                <div class="col-4 benefit-tile">
+                    <p class="fs-sm benefit-des">Validity:29 days</p>
+                </div>
+            </div>
+        </div>
+        <div class="col pull-right pt-1 mt-3"></div>
     </div>
 </div>
+
 
