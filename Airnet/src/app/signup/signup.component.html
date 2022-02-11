@@ -6,30 +6,51 @@
                     <h1>Signup</h1>
                     <h5>Enter your credentials</h5>
                 </div>
-                <form>
+                <form class="content" [formGroup]="registerForm" (ngSubmit)="submitData()">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email"  placeholder="Something@example.com" class="form-control" id="email">
+                        <input type="email" formControlName="emailid" class="form-control" id="email">
+                        <div *ngIf="email.invalid && email.touched || email.dirty">
+                            <span class="error" *ngIf="email.errors?.required">*Email is required</span>
+                            <span class="error" *ngIf="email.errors?.email">*Enter valid input</span>
+                        </div>
                     </div>
                     <br>
                     <div class="mb-3">
                         <label for="exampleInputUsername1" class="form-label">Email Username</label>
-                        <input type="text"  placeholder="Your Name" class="form-control" id="username">
+                        <input type="text" formControlName="username" class="form-control" id="username" >
+                        <div *ngIf="us.invalid && us.touched || us.dirty">
+                            <span class="error" *ngIf="us.errors?.required">*Username is required</span>
+                            <span class="error" *ngIf="us.errors?.pattern">*Enter valid input</span>
+                        </div>
                     </div>
                     <br>
                     <div class="mb-3">
                         <label for="exampleInputMobileNumber1" class="form-label">Email Mobile Number</label>
-                        <input type="text"  placeholder="Phone Number" class="form-control" id="mobileNumber">
+                        <input type="text" formControlName="mobileNumber" class="form-control" id="mobileNumber">
+                        <div *ngIf="num.invalid && num.touched || num.dirty">
+                            <span class="error" *ngIf="num.errors?.required">*Mobile Number is required</span>
+                            <span class="error" *ngIf="num.errors?.pattern">*Enter valid input</span>
+                        </div>
                     </div>
                     <br>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password"  placeholder="Password" class="form-control" id="password">
+                        <input type="password" formControlName="password" class="form-control" id="password">
+                        <div *ngIf = "pass.errors.minlength && !pass.errors.required" class = "alert alert-info">
+                            <span>Password should contain 8 characters</span>
+                        </div> 
+                        <div *ngIf="pass.invalid && pass.touched || pass.dirty">
+                            <span class="error" *ngIf="pass.errors?.required">*Password is required</span>
+                        </div>
                     </div>
                     <br>
                     <div class="mb-3">
                         <label for="exampleInputConfirmPassword1" class="form-label">Confirm Password</label>
-                        <input type="password"  placeholder="Confirm Password" class="form-control" id="confirmPassword">
+                        <input type="password" formControlName="confirmPassword" class="form-control" id="confirmPassword">
+                        <div *ngIf="cpass.invalid && cpass.touched || cpass.dirty">
+                            <span class="error" *ngIf="cpass.errors?.required">*Please Confirm Password</span>
+                        </div>
                     </div>
                     <br>
                     <button type="submit" class="btn btn-primary" id="loginButton">Signup</button>
