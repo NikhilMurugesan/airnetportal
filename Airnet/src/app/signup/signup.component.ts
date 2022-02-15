@@ -1,49 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormControlName, Validators } from '@angular/forms';
-
+import {FormGroup,FormControl,FormControlName,Validators, AbstractControl} from '@angular/forms'
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-
   constructor() { }
+  onPasswordChange() {
+    if (this.confirm_password.value == this.password1.value) {
+      this.confirm_password.setErrors(null);
+    } else {
+      this.confirm_password.setErrors({ mismatch: true });
+    }
+  }
+  
+  // getting the form control elements
+  get password1(): AbstractControl {
+    return this.signupform.controls['password'];
+  }
+  get confirm_password(): AbstractControl {
+    return this.signupform.controls['confirmpassword'];
+  }
+  signupform=new FormGroup({
+	  email:new FormControl('',[Validators.required,Validators.email]),
+	  username:new FormControl('',[Validators.required]),
+    mobilenumber:new FormControl('',[Validators.required,Validators.pattern("[0-9 ]{10}")]),
+    password:new FormControl('',[Validators.required,]),
+    confirmpassword:new FormControl('',[Validators.required])
+  })
 
-  registerForm: any;
+  get email(){
+	  return this.signupform.get('email');
+  }
+  get username(){
+	  return this.signupform.get('username');
+  }
+  get mobilenumber(){
+	  return this.signupform.get('mobilenumber');
+  }
+  get password(){
+	  return this.signupform.get('password');
+  }
+  get confirmpassword(){
+	  return this.signupform.get('confirmpassword');
+  }
 
+  signup(){
+	  console.log(this.signupform.value);
+  }
+
+  
   ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      "emailid": new FormControl(null, [Validators.required, Validators.email]),
-      "username": new FormControl(null, [Validators.required, Validators.pattern('[a-zA-Z]+$')]),
-      "mobileNumber": new FormControl(null, [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]),
-      "password": new FormControl(null, [Validators.required, Validators.minLength(8)]),
-      "confirmPassword": new FormControl(null, [Validators.required])
-    },
-    );
   }
 
-  submitData() {
-    console.log(this.registerForm.value);
-  }
-
-  get email() {
-    return this.registerForm.get('emailid');
-  }
-
-  get us() {
-    return this.registerForm.get('username');
-  }
-
-  get num() {
-    return this.registerForm.get('mobileNumber');
-  }
-
-  get pass() {
-    return this.registerForm.get('password');
-  }
-
-  get cpass() {
-    return this.registerForm.get('confirmPassword')
-  }
 }
